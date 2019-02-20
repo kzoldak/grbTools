@@ -41,14 +41,40 @@ def LumDist(redshift, cosmoconstants=None):
 
     Notes:
     ------
-    Default cosmology is taken from the Planck 2015 results at
+
+    DEFAULT COSMOLOGY:
+    The default Cosmology Constants are:
+    H_knot      = 67.8     +- 0.09  km s^-1 Mpc^-1    Hubble Constant
+    omega_M     = 0.308    +- 0.012                   Matter Density
+    omega_L     = 1.0 - omega_M                       Energy Density
+    These are from the Planck 2015 results at 
         https://arxiv.org/pdf/1502.01589.pdf
-    These are:
-    H_knot (hubble constant): 67.8 +- 
+
+    OUTDATED COSMOLOGY:
+    Outdated Cosmology Parameters that were once used in my analyses.
+    MAY HAVE USED THESE FOR RMFIT.
+    H_knot = 67.3
+    omega_M = 0.315
+    omega_L = 1 - omega_M
+    Was originally used on GRBs modeled with RMFIT.
+    # ***************
+    H_knot      = 70.0
+    omega_M     = 0.27
+    omega_L     = 1.0 - omega_M
+    XSPEC and BXA results orig used these constants. 
+
+    ** Important Note: The Eiso energies computed in all of my 
+        GRB analyses are now consistent in cosmology and use the 
+        default parameters. **
 
     
+    We chose this cosmology because 
+    2nd GBM Spectral Catalog states:  
+    ' All current Cosmological parameters are obtained from the 
+      Planck Collaboration: Ade et al. 2013 '
 
     """
+    #print(cosmoconstants)
     cc = cosmoconstants
     if cc is not None:
         if isinstance(cc, list):  # if list format
@@ -78,8 +104,11 @@ def LumDist(redshift, cosmoconstants=None):
                        "Matter Density.".format(*md_options))
                 raise Exception(msg)
             # Assign constants
-            H_knot = [j for j in cc.keys() if j in hc_options][0]
-            omega_M = [j for j in cc.keys() if j in md_options][0]
+            # Everything inside cc[] is the keyword we want for cc
+            # i.e., below is same as cc['H_knot'] 
+            #   or cc['hubble_constant'], whichever key word was used.
+            H_knot = cc[ [j for j in cc.keys() if j in hc_options][0] ]
+            omega_M = cc[ [j for j in cc.keys() if j in md_options][0] ]
         else:
             dtype = type(cosmoconstants)
             msg = ("cosmoconstants must be list or dict type, "
@@ -102,7 +131,7 @@ def LumDist(redshift, cosmoconstants=None):
 
     # Luminosity Distance Calculation:
     def _lumdist_equation(z):
-        eqn = (1./(sqrt(((1.+z)*(1.+z)*(1.+omega_m*z))-(z*(2.+z)*omega_l ))))
+        eqn = (1./(sqrt(((1.+z)*(1.+z)*(1.+omega_M*z))-(z*(2.+z)*omega_L))))
         return eqn
     # Integrate from 0 to z, [0] ignores the error on integration.
     DL = integrate.quad(_lumdist_equation, 0.0, z)[0]
