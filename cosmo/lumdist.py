@@ -141,31 +141,3 @@ def LumDist(redshift, cosmoconstants=None):
     DL_cm   = DL_Mpc * Mpctocm 
     return DL_cm
 
-
-
-# # **********************************************************
-         
-#     if cc is not None and isinstance(cc, dict):
-#         # Check for correct keywords in dict
-#         hc_options = ['hubble_constant', 'H_knot']
-#         if any(i in cc.keys() for i in hc_options):
-#             pass
-#         else:
-#             msg = ("Must use '{}' or '{}' for "
-#                    "Hubble Constant.".format(*hc_options))
-#             raise Exception(msg)
-#         # Check for correct keywords in dict
-#         md_options = ['matter_density', 'omega_M']
-#         if any(i in cc.keys() for i in md_options):
-#             pass
-#         else:
-#             msg = ("Must use '{}' or '{}' for "
-#                    "Matter Density.".format(*md_options))
-#             raise Exception(msg)
-        
-#         H_knot = [j for j in cc.keys() if j in hc_options][0]
-#         omega_M = [j for j in cc.keys() if j in md_options][0]
-
-
-
-        
