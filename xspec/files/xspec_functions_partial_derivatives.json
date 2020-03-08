@@ -1,0 +1,284 @@
+{
+    "powerlaw": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__2*log(energy)", 
+        "norm__2": "energy*energy**(-PhoIndex__1)"
+    }, 
+    "lpow": {
+        "plIndex__1": "energy*norm__2*(0.01*energy)**plIndex__1*log(0.01*energy)", 
+        "norm__2": "energy*(0.01*energy)**plIndex__1"
+    }, 
+    "bbody": {
+        "kT__1": "8.0525*energy**4*norm__2*exp(energy/kT__1)/(kT__1**6*(exp(energy/kT__1) - 1)**2) - 32.21*energy**3*norm__2/(kT__1**5*(exp(energy/kT__1) - 1))", 
+        "norm__2": "8.0525*energy**3/(kT__1**4*(exp(energy/kT__1) - 1))"
+    }, 
+    "grbm": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ]
+    }, 
+    "sbpl": {
+        "alpha__1": "10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.15*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.15*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*log(10) + 0.5*10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy)", 
+        "beta__2": "10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.15*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.15*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*log(10) + 0.5*10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy)", 
+        "ebreak__3": "10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*((-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - (-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))*log(10)", 
+        "norm__4": "10**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)"
+    }, 
+    "cutoffpl": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)"
+    }, 
+    "grbm+lpow": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "plIndex__5": [
+            "energy*norm__6*(0.01*energy)**plIndex__5*log(0.01*energy)", 
+            "energy*norm__6*(0.01*energy)**plIndex__5*log(0.01*energy)"
+        ], 
+        "norm__6": [
+            "energy*(0.01*energy)**plIndex__5", 
+            "energy*(0.01*energy)**plIndex__5"
+        ]
+    }, 
+    "sbpl+lpow": {
+        "alpha__1": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "beta__2": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "ebreak__3": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - 2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))", 
+        "norm__4": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)", 
+        "plIndex__5": "energy*norm__6*(0.01*energy)**plIndex__5*log(0.01*energy)", 
+        "norm__6": "energy*(0.01*energy)**plIndex__5"
+    }, 
+    "cutoffpl+lpow": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)", 
+        "plIndex__4": "energy*norm__5*(0.01*energy)**plIndex__4*log(0.01*energy)", 
+        "norm__5": "energy*(0.01*energy)**plIndex__4"
+    }, 
+    "grbm+powerlaw": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "PhoIndex__5": [
+            "-energy*energy**(-PhoIndex__5)*norm__6*log(energy)", 
+            "-energy*energy**(-PhoIndex__5)*norm__6*log(energy)"
+        ], 
+        "norm__6": [
+            "energy*energy**(-PhoIndex__5)", 
+            "energy*energy**(-PhoIndex__5)"
+        ]
+    }, 
+    "sbpl+powerlaw": {
+        "alpha__1": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "beta__2": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "ebreak__3": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - 2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))", 
+        "norm__4": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)", 
+        "PhoIndex__5": "-energy*energy**(-PhoIndex__5)*norm__6*log(energy)", 
+        "norm__6": "energy*energy**(-PhoIndex__5)"
+    }, 
+    "cutoffpl+powerlaw": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)", 
+        "PhoIndex__4": "-energy*energy**(-PhoIndex__4)*norm__5*log(energy)", 
+        "norm__5": "energy*energy**(-PhoIndex__4)"
+    }, 
+    "grbm+bbody": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "kT__5": [
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))"
+        ], 
+        "norm__6": [
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))", 
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))"
+        ]
+    }, 
+    "sbpl+bbody": {
+        "alpha__1": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "beta__2": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "ebreak__3": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - 2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))", 
+        "norm__4": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)", 
+        "kT__5": "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+        "norm__6": "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))"
+    }, 
+    "cutoffpl+bbody": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)", 
+        "kT__4": "energy*(8.0525*energy**3*norm__5*exp(energy/kT__4)/(kT__4**6*(exp(energy/kT__4) - 1)**2) - 32.21*energy**2*norm__5/(kT__4**5*(exp(energy/kT__4) - 1)))", 
+        "norm__5": "8.0525*energy**3/(kT__4**4*(exp(energy/kT__4) - 1))"
+    }, 
+    "grbm+bbody+lpow": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "kT__5": [
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))"
+        ], 
+        "norm__6": [
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))", 
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))"
+        ], 
+        "plIndex__7": [
+            "energy*norm__8*(0.01*energy)**plIndex__7*log(0.01*energy)", 
+            "energy*norm__8*(0.01*energy)**plIndex__7*log(0.01*energy)"
+        ], 
+        "norm__8": [
+            "energy*(0.01*energy)**plIndex__7", 
+            "energy*(0.01*energy)**plIndex__7"
+        ]
+    }, 
+    "sbpl+bbody+lpow": {
+        "alpha__1": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "beta__2": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "ebreak__3": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - 2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))", 
+        "norm__4": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)", 
+        "kT__5": "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+        "norm__6": "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))", 
+        "plIndex__7": "energy*norm__8*(0.01*energy)**plIndex__7*log(0.01*energy)", 
+        "norm__8": "energy*(0.01*energy)**plIndex__7"
+    }, 
+    "cutoffpl+bbody+lpow": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)", 
+        "kT__4": "energy*(8.0525*energy**3*norm__5*exp(energy/kT__4)/(kT__4**6*(exp(energy/kT__4) - 1)**2) - 32.21*energy**2*norm__5/(kT__4**5*(exp(energy/kT__4) - 1)))", 
+        "norm__5": "8.0525*energy**3/(kT__4**4*(exp(energy/kT__4) - 1))", 
+        "plIndex__6": "energy*norm__7*(0.01*energy)**plIndex__6*log(0.01*energy)", 
+        "norm__7": "energy*(0.01*energy)**plIndex__6"
+    }, 
+    "grbm+bbody+powerlaw": {
+        "alpha__1": [
+            "energy*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)*log(0.01*energy)", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(log(0.01*tem__3*(alpha__1 - beta__2)) + 1.0)*exp(-alpha__1 + beta__2) - norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "beta__2": [
+            "0", 
+            "energy*(norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(-log(0.01*tem__3*(alpha__1 - beta__2)) - 1.0)*exp(-alpha__1 + beta__2) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)*log(0.01*energy) + norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2))"
+        ], 
+        "tem__3": [
+            "energy**2*norm__4*(0.01*energy)**alpha__1*exp(-energy/tem__3)/tem__3**2", 
+            "100.0*energy*norm__4*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*(0.01*alpha__1 - 0.01*beta__2)*exp(-alpha__1 + beta__2)/tem__3"
+        ], 
+        "norm__4": [
+            "energy*(0.01*energy)**alpha__1*exp(-energy/tem__3)", 
+            "energy*(0.01*energy)**beta__2*(0.01*tem__3*(alpha__1 - beta__2))**(alpha__1 - beta__2)*exp(-alpha__1 + beta__2)"
+        ], 
+        "kT__5": [
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+            "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))"
+        ], 
+        "norm__6": [
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))", 
+            "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))"
+        ], 
+        "PhoIndex__7": [
+            "-energy*energy**(-PhoIndex__7)*norm__8*log(energy)", 
+            "-energy*energy**(-PhoIndex__7)*norm__8*log(energy)"
+        ], 
+        "norm__8": [
+            "energy*energy**(-PhoIndex__7)", 
+            "energy*energy**(-PhoIndex__7)"
+        ]
+    }, 
+    "sbpl+bbody+powerlaw": {
+        "alpha__1": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) - 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "beta__2": "energy*(10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(-0.345387763949107*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + 0.345387763949107*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10)))) + 0.5*10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*log(0.01*energy))", 
+        "ebreak__3": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*norm__4*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)*(2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(energy/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(energy/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))) - 2.30258509299405*(-0.15*alpha__1 + 0.15*beta__2)*(1.66666666666667*(100.0/ebreak__3)**(-3.33333333333333/log(10))/(ebreak__3*log(10)) - 1.66666666666667*(100.0/ebreak__3)**(3.33333333333333/log(10))/(ebreak__3*log(10)))/(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))))", 
+        "norm__4": "10.0**(-(-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(100.0/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(100.0/ebreak__3)**(3.33333333333333/log(10))) + (-0.15*alpha__1 + 0.15*beta__2)*log(0.5*(energy/ebreak__3)**(-3.33333333333333/log(10)) + 0.5*(energy/ebreak__3)**(3.33333333333333/log(10))))*energy*(0.01*energy)**(0.5*alpha__1 + 0.5*beta__2)", 
+        "kT__5": "energy*(8.0525*energy**3*norm__6*exp(energy/kT__5)/(kT__5**6*(exp(energy/kT__5) - 1)**2) - 32.21*energy**2*norm__6/(kT__5**5*(exp(energy/kT__5) - 1)))", 
+        "norm__6": "8.0525*energy**3/(kT__5**4*(exp(energy/kT__5) - 1))", 
+        "PhoIndex__7": "-energy*energy**(-PhoIndex__7)*norm__8*log(energy)", 
+        "norm__8": "energy*energy**(-PhoIndex__7)"
+    }, 
+    "cutoffpl+bbody+powerlaw": {
+        "PhoIndex__1": "-energy*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)*log(energy)", 
+        "HighECut__2": "energy**2*energy**(-PhoIndex__1)*norm__3*exp(-energy/HighECut__2)/HighECut__2**2", 
+        "norm__3": "energy*energy**(-PhoIndex__1)*exp(-energy/HighECut__2)", 
+        "kT__4": "energy*(8.0525*energy**3*norm__5*exp(energy/kT__4)/(kT__4**6*(exp(energy/kT__4) - 1)**2) - 32.21*energy**2*norm__5/(kT__4**5*(exp(energy/kT__4) - 1)))", 
+        "norm__5": "8.0525*energy**3/(kT__4**4*(exp(energy/kT__4) - 1))", 
+        "PhoIndex__6": "-energy*energy**(-PhoIndex__6)*norm__7*log(energy)", 
+        "norm__7": "energy*energy**(-PhoIndex__6)"
+    }, 
+    "bbody+lpow": {
+        "kT__1": "energy*(8.0525*energy**3*norm__2*exp(energy/kT__1)/(kT__1**6*(exp(energy/kT__1) - 1)**2) - 32.21*energy**2*norm__2/(kT__1**5*(exp(energy/kT__1) - 1)))", 
+        "norm__2": "8.0525*energy**3/(kT__1**4*(exp(energy/kT__1) - 1))", 
+        "plIndex__3": "energy*norm__4*(0.01*energy)**plIndex__3*log(0.01*energy)", 
+        "norm__4": "energy*(0.01*energy)**plIndex__3"
+    }, 
+    "bbody+powerlaw": {
+        "kT__1": "energy*(8.0525*energy**3*norm__2*exp(energy/kT__1)/(kT__1**6*(exp(energy/kT__1) - 1)**2) - 32.21*energy**2*norm__2/(kT__1**5*(exp(energy/kT__1) - 1)))", 
+        "norm__2": "8.0525*energy**3/(kT__1**4*(exp(energy/kT__1) - 1))", 
+        "PhoIndex__3": "-energy*energy**(-PhoIndex__3)*norm__4*log(energy)", 
+        "norm__4": "energy*energy**(-PhoIndex__3)"
+    }
+}

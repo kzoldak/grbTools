@@ -16,7 +16,6 @@ When to use these functions:
 - When you do not have a covariance matrix for uncertainty propagation.
 - When you want a quick flux, fluence, or Eiso; or a quick plot of the model.
 
-
 When NOT to use these functions:
 --------------------------------
 - When you are calculating flux, fluence, or Eiso for the first time.
@@ -59,17 +58,12 @@ characteristic energies, you just have to specify which one you are passing.
 
 """
 from __future__ import division  # just incase this is running on Python 2.7
-
-import warnings
-
 import numpy as np
 from numpy import exp, log, log10
 from math import atanh
 
 
-
-__all__ = ["lpow", "powerlaw", "copl", "band", "grbm", "sbpl", "bbody"]
-
+__all__ = ["lpow", "copl", "band", "grbm", "sbpl", "bbody"]
 
 
 def band(energy, alpha, beta, enterm, norm, entype='epeak', enorm=100.0):
@@ -288,7 +282,7 @@ def copl(energy, alpha, enterm, norm, entype='epeak', enorm=100.0):
       plIndex; alpha and plIndex represent the same thing. 
 
     If you have XSPEC derived cutoffpl parameters, the conversion can be 
-      done in one of the two following ways: 
+      done in one of the two following ways:
 
         alpha = -alpha
         norm = 100^(-alpha)  # This alpha is AFTER you swap alpha's sign. 
@@ -303,7 +297,6 @@ def copl(energy, alpha, enterm, norm, entype='epeak', enorm=100.0):
       based on two conditions (as band's function is), and make the output 
       of the second conditional (higher energies) to be zero. We didn't 
       do that here.
-
 
 
     Calculations:
@@ -343,7 +336,7 @@ def copl(energy, alpha, enterm, norm, entype='epeak', enorm=100.0):
 
 
 
-def bbody(energy, kT, norm, program='xspec'):
+def bbody(energy, kT, norm):
     '''
     Blackbody function. This function reflect's XSPEC's version; 
         see Notes!!
@@ -387,15 +380,11 @@ def bbody(energy, kT, norm, program='xspec'):
     on the order of < 1E-4.
 
     '''
+    print('\n !!! Warning!!!  This is the XSPEC bbdoy function.\n')
     eng     = energy
     temp    = kT
     Amp     = norm
-    if program == 'xspec':
-        result = Amp * (pow(eng, 2) * 8.0525)/(pow(temp, 4) * (exp(eng/temp)-1.))
-    elif program == 'rmfit':
-        result = Amp * (pow(eng, 2)/(exp(eng/temp)-1.))
-    else:
-        raise Exception("'program' must be 'xspec' or 'rmfit'. ")
+    result = Amp * (pow(eng, 2) * 8.0525)/(pow(temp, 4) * (exp(eng/temp)-1.))
     return result
 
     #if eng <= (709.666 * kT): # to avoid exp overflow error
@@ -406,18 +395,14 @@ def bbody(energy, kT, norm, program='xspec'):
 
 def lpow(energy, alpha, norm, enorm=100.0):
     '''
-    Our power-law function. 
-    Same as RMFIT's. 
-    Slightly different than XSPEC's: 
-        - different sign on alpha 
-        - normalized to 100 keV rather than 1 keV, like XSPEC's.
+    XSPEC power-law function. Should be same as the RMFIT PowerLaw.
     
     PARAMETERS:
     ----------
-    energy : float, energy element from an array of energies over which 
+    energy: float, energy element from an array of energies over which 
             the function is integrated over. 
-    alpha :  float, power-law index parameter value.  
-    norm :   float, normalization (aka amplitude) parameter value.  
+    index:  float, power-law index parameter value.  
+    norm:   float, normalization (aka amplitude) parameter value.  
 
     '''
     eng = energy
@@ -426,103 +411,3 @@ def lpow(energy, alpha, norm, enorm=100.0):
     result = Amp * pow(eng/enorm, a)
     return result
 
-
-def powerlaw(energy, alpha, norm, enorm=1.0):
-    '''
-    XSPEC power-law function. 
-
-    Is normalized to 1 keV whereas RMFIT is to 100 keV.
-    alpha sign is backwards from RMFIT's.
-    
-    PARAMETERS:
-    ----------
-    energy : float, energy element from an array of energies over which 
-            the function is integrated over. 
-    alpha :  float, power-law index parameter value.  
-    norm :   float, normalization (aka amplitude) parameter value.  
-
-    '''
-    eng = energy
-    a = alpha
-    Amp = norm
-    result = Amp * pow(eng/enorm, -a)
-    return result
-
-
-
-
-
-### *********************************************************************
-##  BELOW:   TRYING TO MAKE FUNCTIONS ACCEPT ATTRIBUTES AND DICT FOR THE 
-##              PARAMETERS. NEED TO IMPLEMENT WARNINGS EVERYWHERE. 
-##          !! FUTURE WORK !!
-### *********************************************************************
-
-
-# def band(energy=None, alpha=None, beta=None, enterm=None, norm=None, 
-#     entype=None, enorm=None, **parsDict):
-
-
-#     # Read from dict.
-#     if parsDict:
-        
-#         a = parsDict['alpha']
-#         b = parsDict['beta']
-#         Amp = parsDict['norm']
-#         if 'enorm' in parsDict.keys():
-#             enorm = parsDict['enorm']
-#         else:
-#             warnings.warn("Using enorm=100.0. Specify 'enorm' if this action "
-#             "is not desired.", 
-#             UserWarning, stacklevel=1)
-#             enorm = 100.0
-#     else:
-#         # Assume attributed names used. 
-#         if entype is None:
-#             warnings.warn("Using entype='epeak'. Specify 'entype' if this "
-#                 "action is not desired.", 
-#                 UserWarning, stacklevel=1)
-#             entype = 'epeak'
-
-#     if enorm is None:
-#         warnings.warn("Using enorm=100.0. Specify 'enorm' if this action "
-#             "is not desired.", 
-#             UserWarning, stacklevel=1)
-#         enorm = 100.0
-
-
-
-#     entype_options = ['E0','tem','epeak','ebreak']
-#     if entype not in entype_options:
-#         msg = 'entype must be one of following: %r'%entype_options
-#         raise Exception(msg)
-        
-#     eng = energy
-#     Amp = norm
-#     a = alpha
-#     b = beta
-#     enorm = enorm
-
-#     if (entype == 'E0') or (entype == 'tem'):
-#         epk = enterm * (2.+a)
-#     elif entype == 'ebreak':
-#         epk = (enterm/(a-b)) * (2.+a)
-#     else:
-#         epk = enterm  # default is entype == 'epeak'
-
-#     condLO = eng < ((a-b) * epk)/(2.0+a)
-#     condUP = eng >= ((a-b) * epk)/(2.0+a)
-
-#     bandLO = lambda x: Amp * pow((x/enorm), a) * exp(-(2.+a)*x/epk)
-#     bandUP = lambda x: Amp * pow((x/enorm), b) * exp(b-a) * \
-#                         pow(((a-b)*epk)/(enorm*(2.+a)), a-b)
-#     result = np.piecewise(eng, [condLO, condUP], [bandLO, bandUP])
-#     return result
-
-
-# def grbm(energy, alpha, beta, enterm, norm, entype='epeak', enorm=100.0):
-#     """
-#     A copy of the band function.
-
-#     """
-#     return band(energy, alpha, beta, enterm, norm, entype=entype, enorm=enorm)

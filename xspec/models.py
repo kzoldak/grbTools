@@ -13,6 +13,8 @@ from numpy import exp, power, log, log10, exp
 from math import atanh
 
 
+__all__ = ["lpow", "powerlaw", "cutoffpl", "grbm", "sbpl", "bbody"]
+
 def grbm(energy, alpha, beta, tem, norm):
     '''
 
@@ -121,8 +123,6 @@ def sbpl(energy, alpha, beta, ebreak, norm):
                 -(p1*d*log((exp(p3)+exp(-p3))/2.))))
 
 
-
-
 def cutoffpl(energy, PhoIndex, HighECut, norm):
     '''
     cutoffpl(energy, PhoIndex, HighECut, norm)
@@ -171,8 +171,8 @@ def cutoffpl(energy, PhoIndex, HighECut, norm):
     eng = energy
     Amp = norm
     idx = PhoIndex
-    HEC = HighECut
-    return Amp * (eng**(-idx)) * exp(-eng/HEC)
+    hec = HighECut
+    return Amp * (eng**(-idx)) * exp(-eng/hec)
 
 
 

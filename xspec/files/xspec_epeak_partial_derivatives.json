@@ -1,0 +1,146 @@
+{
+    "grbm": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0"
+    }, 
+    "sbpl": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0"
+    }, 
+    "cutoffpl": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0"
+    }, 
+    "grbm+lpow": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0", 
+        "plIndex__5": "0", 
+        "norm__6": "0"
+    }, 
+    "sbpl+lpow": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0", 
+        "plIndex__5": "0", 
+        "norm__6": "0"
+    }, 
+    "cutoffpl+lpow": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0", 
+        "plIndex__4": "0", 
+        "norm__5": "0"
+    }, 
+    "grbm+powerlaw": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0", 
+        "PhoIndex__5": "0", 
+        "norm__6": "0"
+    }, 
+    "sbpl+powerlaw": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0", 
+        "PhoIndex__5": "0", 
+        "norm__6": "0"
+    }, 
+    "cutoffpl+powerlaw": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0", 
+        "PhoIndex__4": "0", 
+        "norm__5": "0"
+    }, 
+    "grbm+bbody": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0"
+    }, 
+    "sbpl+bbody": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0"
+    }, 
+    "cutoffpl+bbody": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0", 
+        "kT__4": "0", 
+        "norm__5": "0"
+    }, 
+    "grbm+bbody+lpow": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0", 
+        "plIndex__7": "0", 
+        "norm__8": "0"
+    }, 
+    "sbpl+bbody+lpow": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0", 
+        "plIndex__7": "0", 
+        "norm__8": "0"
+    }, 
+    "cutoffpl+bbody+lpow": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0", 
+        "kT__4": "0", 
+        "norm__5": "0", 
+        "plIndex__6": "0", 
+        "norm__7": "0"
+    }, 
+    "grbm+bbody+powerlaw": {
+        "alpha__1": "tem__3", 
+        "beta__2": "0", 
+        "tem__3": "alpha__1 + 2.0", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0", 
+        "PhoIndex__7": "0", 
+        "norm__8": "0"
+    }, 
+    "sbpl+bbody+powerlaw": {
+        "alpha__1": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) - (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "beta__2": "0.3*10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))*ebreak__3*(1/(alpha__1 - beta__2) + (alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)**2)*log(10)/(1 - (alpha__1 + beta__2 + 4.0)**2/(alpha__1 - beta__2)**2)", 
+        "ebreak__3": "10**(0.3*atanh((alpha__1 + beta__2 + 4.0)/(alpha__1 - beta__2)))", 
+        "norm__4": "0", 
+        "kT__5": "0", 
+        "norm__6": "0", 
+        "PhoIndex__7": "0", 
+        "norm__8": "0"
+    }, 
+    "cutoffpl+bbody+powerlaw": {
+        "PhoIndex__1": "HighECut__2", 
+        "HighECut__2": "PhoIndex__1 + 2.0", 
+        "norm__3": "0", 
+        "kT__4": "0", 
+        "norm__5": "0", 
+        "PhoIndex__6": "0", 
+        "norm__7": "0"
+    }
+}

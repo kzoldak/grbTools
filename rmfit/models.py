@@ -12,9 +12,9 @@ def band(energy, alpha, beta, epeak, norm):
     """
     eng = energy
     a = alpha
+    Amp = norm
     b = beta
     epk = epeak
-    Amp = norm
     enorm = 100.0  # Don't have the option to change this!
 
     condLO = eng < ((a-b) * epk)/(2.0+a)
