@@ -1,0 +1,1 @@
+This directory contains all of the code that I use for comparing Eiso energies and spectral modeling parameters. These are used extensively throughout my dissertation. 

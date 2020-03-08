@@ -14,9 +14,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 
-from Zoldak.math.tools import root_mean_square as rms
+from grbTools.math.tools import root_mean_square as rms
 
-# from .plotting import journal()
+from grbTools.plotting.journal import journal
+journal()
+
 
 
 __all__ = ['get_parameter_label', 'plot_diagonal', 'plot_stats', 
@@ -116,6 +118,12 @@ def plot_comparison(x, y, xerr=None, yerr=None, parameter=None, xaxlabel='',
     Plot for comparing Eiso and parameters, thos in my dissertation. 
     The ones with diagonals and have the same x- and y-axes labels. 
 
+    ********
+    If you cant get figures to align with the old ones, in the global 
+    namespace, use:
+    ax.subplots_adjust(left=0.15, right=0.96, top=0.96, bottom=0.14)
+    ********
+
 
     Parameters:
     -----------
@@ -174,13 +182,14 @@ def plot_comparison(x, y, xerr=None, yerr=None, parameter=None, xaxlabel='',
     
     
     """
-    plt.rcParams.update( {'figure.subplot.bottom': 0.14,
-                          'figure.subplot.left': 0.15,
-                          'figure.subplot.right': 0.96,
-                          'figure.subplot.top': 0.96,
-                          'figure.subplot.wspace': 0.2,
-                          'figure.subplot.hspace': 0.2,
-                          })
+    # plt.rcParams.update( {'figure.subplot.bottom': 0.14,
+    #                       'figure.subplot.left': 0.15,
+    #                       'figure.subplot.right': 0.96,
+    #                       'figure.subplot.top': 0.96,
+    #                       'figure.subplot.wspace': 0.2,
+    #                       'figure.subplot.hspace': 0.2,
+    #                       })
+    #plt.clf()
     x = np.array(x)
     y = np.array(y)
 
@@ -201,9 +210,23 @@ def plot_comparison(x, y, xerr=None, yerr=None, parameter=None, xaxlabel='',
         pltKwgs = dict(marker='o', color='white', mec='blue', 
                        ms=6, lw=0, mew=0.9, alpha=1) # data points
     
-    PLT = ax.plot(x, y, **pltKwgs)
+    if 'fmt' in pltKwgs.keys():
+        # dict meant for plt.errorbar. Use errobar cmd and leave off the errorbars. 
+        PLT = ax.errorbar(x, y, xerr=None, yerr=None, **pltKwgs)
+    else:
+        # dict meant for plt.plot
+        PLT = ax.plot(x, y, **pltKwgs)
+    
+    if 'mec' not in pltKwgs.keys():
+        pltKwgs['mec'] = 'grey'
+
+    # y, xmin, xmax
     if xerr is not None:
-        ax.hlines(x, xerr[0], xerr[1], color=pltKwgs['mec'])
+        ax.hlines(y, xerr[0], xerr[1], color=pltKwgs['mec'], alpha=0.3)
+    # x, ymin, ymax
+    if yerr is not None:
+        ax.vlines(x, yerr[0], yerr[1], color=pltKwgs['mec'], alpha=0.3)
+
     ax.set_xlim(*axLims)
     ax.set_ylim(*axLims)
 
@@ -215,12 +238,10 @@ def plot_comparison(x, y, xerr=None, yerr=None, parameter=None, xaxlabel='',
         labelpad = -0.01
 
     ax.set_ylabel('%s   (%s)'%(parlabel, yaxlabel), fontsize=12, labelpad=labelpad)
-    #ax.subplots_adjust(left=0.15, right=0.96, top=0.96, bottom=0.14)
-    #ax.legend(loc=0, ) #fontsize=11, labelspacing=0.7, handletextpad=0, frameon=False)
     return PLT
 
-# ********************************************************************
-# ********************************************************************
+
+
 
 
 
@@ -232,9 +253,6 @@ def plot_comparison(x, y, xerr=None, yerr=None, parameter=None, xaxlabel='',
 # else:
 #     ax.set_ylabel('%s   (%s)'%(parlab, labels[1]), fontsize=12)
 # return PLT
-
-
-
 
 
 #     axLims = (np.min([x.min(), y.min()]), 
